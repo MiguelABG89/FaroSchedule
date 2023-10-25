@@ -5,7 +5,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
-    private final static int NUMERO_HILOS=1;
+    private final static int NUMERO_HILOS=4;
     private final static String MORSE1="·-";
     private final static String MORSE2="-···";
     private final static String IDENTIFICADOR1="A";
@@ -28,15 +28,8 @@ public class Main {
                     + ":" + l_Calendario.get(Calendar.SECOND);
             String l_Colision;
 
-//            if (a_Buzon.isA_Estado()==true){
-//                l_Colison="Colisionan";
-//
-//            }else {
-//                l_Colison="";
-//            }
-
             if (a_Buzon.a_Estado) l_Colision="Colisionan";
-            else l_Colision="";
+            else l_Colision="no colisionan";
 
 
             a_Buzon.a_Estado=true;
@@ -70,7 +63,7 @@ public class Main {
         l_Scheduler.scheduleWithFixedDelay(radiofaroA,0,3,TimeUnit.SECONDS);
         l_Scheduler.scheduleWithFixedDelay(radiofaroB,3,2,TimeUnit.SECONDS);
 
-        l_Scheduler.awaitTermination(21,TimeUnit.SECONDS);
+        l_Scheduler.awaitTermination(30,TimeUnit.SECONDS);
 
         l_Scheduler.shutdown();
 
